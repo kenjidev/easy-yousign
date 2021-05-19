@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the Easyblue YouSign project.
@@ -90,7 +90,7 @@ class Member
     /**
      * @Groups({"read", "write"})
      */
-    protected ?ModeSmsConfiguration $modeSmsConfiguration = null;
+    protected ?OperationModeSmsConfig $operationModeSmsConfig = null;
 
     public function getId(): ?string
     {
@@ -267,14 +267,14 @@ class Member
         return $this;
     }
 
-    public function getModeSmsConfiguration(): ?ModeSmsConfiguration
+    public function getOperationModeSmsConfig(): ?OperationModeSmsConfig
     {
-        return $this->modeSmsConfiguration;
+        return $this->operationModeSmsConfig;
     }
 
-    public function setModeSmsConfiguration(?ModeSmsConfiguration $modeSmsConfiguration): self
+    public function setOperationModeSmsConfig(?OperationModeSmsConfig $operationModeSmsConfig): self
     {
-        $this->modeSmsConfiguration = $modeSmsConfiguration;
+        $this->operationModeSmsConfig = $operationModeSmsConfig;
 
         return $this;
     }

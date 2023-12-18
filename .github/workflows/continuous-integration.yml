@@ -1,2 +1,27 @@
 name: "Continuous Integration"
 on: [ push ]
+name: "Continuous Integration"
+
+on: [ push ]
+
+jobs:
+    quality:
+        name: Quality
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v1
+            -   name: Install PHP extensions
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.0.3'
+                    tools: pecl, composer, flex, cs2pr, php-cs-fixer
+                    ini-values: memory_limit=-1
+                    extensions: intl, xsl, mysql, gd, zip, amqp, ctype, json, soap
+            -   name: Cache Composer packages
+                uses: actions/cache@v1
+                with:
+                    path: ~/.composer/cache
+                    key: composer-${{ github.sha }}
+                    restore-keys: composer-
+                continue-on-error: true

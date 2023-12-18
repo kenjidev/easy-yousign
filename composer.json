@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "ext-json": "^7.4|^8.0",
+        "php": "^7.4|^8.2",
+        "ext-json": "^7.4|^8.2",
         "doctrine/annotations": "^1.10",
         "guzzlehttp/guzzle": ">=6.0",
         "symfony/property-access": "^5.1",

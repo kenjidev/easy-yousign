@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the Easyblue YouSign project.
@@ -15,19 +15,13 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 class Webhook
 {
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $url = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $method = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected Header $headers;
 
     public function getUrl(): ?string

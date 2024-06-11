@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the Easyblue YouSign project.
@@ -15,14 +15,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 trait TimestampsTrait
 {
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?\DateTime $createdAt = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?\DateTime $updatedAt = null;
 
     public function getCreatedAt(): ?\DateTime

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the Easyblue YouSign project.
@@ -16,86 +16,54 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class FileObject
 {
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $id = null;
 
-    /**
-     * @Groups({"write"})
-     * @SerializedName("file")
-     */
+    #[Groups(['write'])]
+    #[SerializedName('file')]
     protected ?string $fileId = null;
 
-    /**
-     * @Groups({"read"})
-     * @SerializedName("file")
-     */
+    #[Groups(['read'])]
+    #[SerializedName('file')]
     protected ?File $file = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected int $page = 0;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $position = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $fieldName = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $mention = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $mention2 = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?\DateTime $executedAt = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $reason = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $type = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected bool $contentRequired = false;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $content = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $fontFamily = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?int $fontSize = 0;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $fontColor = null;
 
     public function getId(): ?string

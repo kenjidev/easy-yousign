@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the Easyblue YouSign project.
@@ -15,17 +15,13 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 class ProcedureConfig
 {
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read'])]
     protected ?ProcedureConfigEmail $email = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?ProcedureConfigWebhook $webhook = null;
 
-    public function __construct(ProcedureConfigEmail $email = null, ProcedureConfigWebhook $webhook = null)
+    public function __construct(?ProcedureConfigEmail $email = null, ?ProcedureConfigWebhook $webhook = null)
     {
         $this->email   = $email;
         $this->webhook = $webhook;

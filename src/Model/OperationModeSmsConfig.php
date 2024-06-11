@@ -15,9 +15,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 class OperationModeSmsConfig
 {
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $content = null;
 
     public function getContent(): ?string

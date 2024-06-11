@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the Easyblue YouSign project.
@@ -17,109 +17,69 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 class Procedure
 {
     use TimestampsTrait;
-    const STATE_DRAFT    = 'draft';
-    const STATE_ACTIVE   = 'active';
-    const STATE_FINISHED = 'finished';
-    const STATE_EXPIRED  = 'expired';
-    const STATE_REFUSED  = 'refused';
+    public const STATE_DRAFT    = 'draft';
+    public const STATE_ACTIVE   = 'active';
+    public const STATE_FINISHED = 'finished';
+    public const STATE_EXPIRED  = 'expired';
+    public const STATE_REFUSED  = 'refused';
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $id = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $name = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?\DateTime $expiresAt = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?\DateTime $finishedAt = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $status = self::STATE_ACTIVE;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $creator = null;
 
-    /**
-     * @Groups({"read"})
-     * @SerializedName("creatorFirstName")
-     */
+    #[Groups(['read'])]
+    #[SerializedName('creatorFirstName')]
     protected ?string $creatorFirstname = null;
 
-    /**
-     * @Groups({"read"})
-     * @SerializedName("creatorLastName")
-     */
+    #[Groups(['read'])]
+    #[SerializedName('creatorLastName')]
     protected ?string $creatorLastname = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $workspace = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $parent = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected bool $template = false;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $description = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected bool $ordered = false;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected bool $relatedFilesEnable = false;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected bool $archive = false;
 
-    /**
-     * @Groups({"read", "write"})
-     *
-     * @var Member[]
-     */
+    #[Groups(['read', 'write'])]
     protected array $members = [];
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected array $metadatas = [];
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?ProcedureConfig $config = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected array $files = [];
 
     public function getId(): ?string
@@ -300,8 +260,6 @@ class Procedure
 
     /**
      * @param Member[] $members
-     *
-     * @return Procedure
      */
     public function setMembers(array $members): self
     {

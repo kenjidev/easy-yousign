@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of the Easyblue YouSign project.
@@ -18,67 +18,42 @@ class File
 {
     use TimestampsTrait;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $id = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $name = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $type = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $password = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $description = null;
 
-    protected ?array  $metadata = null;
+    protected ?array $metadata = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $content = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $contentType = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected ?string $procedure = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $workspace = null;
 
-    /**
-     * @Groups({"read"})
-     */
+    #[Groups(['read'])]
     protected ?string $creator = null;
 
-    /**
-     * @Groups({"read"})
-     * @SerializedName("sha256")
-     */
+    #[Groups(['read']), SerializedName('sha256')]
     protected ?string $hash = null;
 
-    /**
-     * @Groups({"read", "write"})
-     */
+    #[Groups(['read', 'write'])]
     protected $position;
 
     public function getId(): ?string
